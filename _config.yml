@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : "dark" # "light" (default), "dark"
+    colorscheme          : #"dark" # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Daisuke Oba"
   avatar           : "profile.png"
-  bio              : "Second year PhD student at The University of Tokyo"
-  location         : "Tokyo, Japan"
+  bio              : "PhD student at The University of Tokyo"
+  location         : "Ee-503, 4-6-1 Komaba, Meguro-Ku, Tokyo, 153-8505, Japan"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "daioba"
+  github           : #"daioba"
   google_plus      :
   keybase          :
   instagram        :
