@@ -5,12 +5,7 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
-
-{% include base_path %}
-
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+## Journal (Refereed)
+- __Daisuke Oba__, Shoetsu Sato, Satoshi Akasaki, Naoki Yoshinaga, Masashi Toyoda 
+- **Personal Semantic Variations in Word Meanings: Induction, Application, and Analysis **
+- Journal of Natural Language Processing, 2020, Volume 27, Issue 2, Pages 467-490.
