@@ -1,7 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
-excerpt: "About me"
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
@@ -9,3 +8,6 @@ redirect_from:
 ---
 
 This is Daisuke Oba's website.
+
+## News
+- 2022.2: Personal web site is opened.
