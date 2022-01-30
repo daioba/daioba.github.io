@@ -2,11 +2,8 @@
 main:
   - title: "Publications"
     url: /publications/
-
-  - title: "CV/Resume"
-    url: /cv/    
     
-  - title: "Grants/Awards/Scholarship"
+  - title: "Honor/Award"
     url: /grants/
   
   - title: "Blog"
