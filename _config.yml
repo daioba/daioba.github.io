@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Daisuke Oba / Daisuke Oba's Website"
+title                    : "Daisuke Oba"
 title_separator          : "-"
 name                     : &name "Daisuke Oba"
 description              : &description "Second year PhD student at The University of Tokyo"
