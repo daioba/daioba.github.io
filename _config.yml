@@ -83,11 +83,11 @@ author:
   name             : "Daisuke Oba"
   avatar           : "profile.png"
   bio              : "Second year PhD student <br>at The University of Tokyo"
-  location         : "Tokyo, Japan" # "Ee-503, 4-6-1 Komaba, Meguro-Ku, Tokyo, 153-8505, Japan"
+  location         : #"Tokyo, Japan" # "Ee-503, 4-6-1 Komaba, Meguro-Ku, Tokyo, 153-8505, Japan"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : oba@tkl.iis.u-tokyo.ac.jp
+  email            : # oba@tkl.iis.u-tokyo.ac.jp
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
