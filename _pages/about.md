@@ -10,4 +10,4 @@ redirect_from:
 This is Daisuke Oba's website.
 
 ## News
-- 2022.2: [Personal web site](https://daioba.github.io) is opened.
+- 2022.2: Personal web site is opened.
