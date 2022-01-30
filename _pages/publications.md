@@ -26,11 +26,11 @@ Proceedings of the 20th International Conference on Computational Linguistics an
 ## Domestic Conference Papers (in Japanese)
 - __Diasuke Oba__, Naoki Yoshinaga, Masashi Toyoda.    
 **ニューロンを活性化させるテキストに基づくニューラル自然言語処理モデルの解析手法**  
-Proceedings of the 35th Annual Conference of the Japanese Society for Artificial Intelligence (JSAI2021), 4H3-GS-11d-02. Online. June, 2021.   
+Proceedings of the 35th Annual Conference of the Japanese Society for Artificial Intelligence (JSAI), 4H3-GS-11d-02. Online. June, 2021.   
 
 - __Diasuke Oba__, Shoetsu Sato, Satoshi Akasaki, Naoki Yoshinaga, Masashi Toyoda.    
 **人の言語使用における単語の意味の揺らぎの解明に向けて**  
-Proceedings of the 25th Annual Meeting of the Association for Natural Language Processing (NLP2019), pp. 715-718, Aichi. March, 2019.  
+Proceedings of the 25th Annual Meeting of the Association for Natural Language Processing (NLP), pp. 715-718, Aichi. March, 2019.  
 
 - __Diasuke Oba__, Naoki Yoshinaga, Satoshi Akasaki, Masashi Toyoda.  
 **五感に基づく言語表現における個人のバイアスとその補正**   
