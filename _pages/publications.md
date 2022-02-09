@@ -24,6 +24,10 @@ Proceedings of the 2019 Conference of the North American Chapter of the Associat
 Proceedings of the 20th International Conference on Computational Linguistics and Lntelligent Text Processing (CICLing2019), No.129. La Rochelle, France. April, 2019.  
 
 ## Domestic Conference Papers (in Japanese)
+- __Daisuke Oba__, Ikuya Yamada, Naoki Yoshinaga, Masashi Toyoda.  
+**静的および動的な埋め込みに基づくエンティティの曖昧性解消**  
+Proceedings of the 28th Annual Meeting of the Association for Natural Language Processing (NLP), Shizuoka. March, 2022. (in press)
+
 - __Diasuke Oba__, Naoki Yoshinaga, Masashi Toyoda.    
 **ニューロンを活性化させるテキストに基づくニューラル自然言語処理モデルの解析手法**  
 Proceedings of the 35th Annual Conference of the Japanese Society for Artificial Intelligence (JSAI), 4H3-GS-11d-02. Online. June, 2021.   
