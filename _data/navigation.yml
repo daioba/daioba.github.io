@@ -2,9 +2,6 @@
 main:
   - title: "Publications"
     url: /publications/
-    
-#  - title: "CV/Resume"
-#    url: https://daioba.github.io/images/2021.blackboxnlp-1.41.pdf
   
   - title: "Blog"
     url: https://note.com/calm_duck279
