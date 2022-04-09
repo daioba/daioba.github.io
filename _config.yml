@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Daisuke Oba"
   avatar           : "profile.jpg"
-  bio              : "Second year PhD student <br>at The University of Tokyo"
+  bio              : #"Second year PhD student <br>at The University of Tokyo"
   location         : #"Tokyo, Japan" # "Ee-503, 4-6-1 Komaba, Meguro-Ku, Tokyo, 153-8505, Japan"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
