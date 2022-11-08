@@ -12,7 +12,7 @@ Journal of Natural Language Processing, 2020, Volume 27, Issue 2, Pages 467-490.
 
 ## Refereed Conference & Workshop Papers
 - __Daisuke Oba__, Ikuya Yamada, Naoki Yoshinaga, Masashi Toyoda.  
-**Entity Embedding Completion for Wide-Coverage Entity Disambiguation.**
+**Entity Embedding Completion for Wide-Coverage Entity Disambiguation.**  
 Findings of the Association for Computational Linguistics: EMNLP 2022. (to be published)  
 
 - __Daisuke Oba__, Naoki Yoshinaga, Masashi Toyoda.  
