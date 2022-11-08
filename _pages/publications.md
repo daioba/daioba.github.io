@@ -11,6 +11,10 @@ author_profile: true
 Journal of Natural Language Processing, 2020, Volume 27, Issue 2, Pages 467-490.  
 
 ## Refereed Conference & Workshop Papers
+- __Daisuke Oba__, Ikuya Yamada, Naoki Yoshinaga, Masashi Toyoda.  
+**Entity Embedding Completion for Wide-Coverage Entity Disambiguation**
+Findings of the Association for Computational Linguistics: EMNLP 2022. (to be published)  
+
 - __Daisuke Oba__, Naoki Yoshinaga, Masashi Toyoda.  
 **Exploratory Model Analysis Using Data-Driven Neuron Representations**  
 Proceedings of the Fourth BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP (BlaxkBoxNLP2021 at EMNLP2021), pp. 518-528. Punta Cana, Dominican Republic and/or Online. November, 2021.  
