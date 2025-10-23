@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a full-time researcher in <a href="https://www.nlp.c.titech.ac.jp/index.en.html">the Okazaki Laboratory</a> at the <a href="https://www.isct.ac.jp/en">Institute of Science Tokyo</a>, working with Prof. Naoaki Okazaki on trustworthy natural language processing. Beginning September 2025 I will transition into a Specially Appointed Assistant Professor role in the same lab. Before June 2025, I led applied LLM projects as Lead AI Engineer at <a href="https://elyza.co.jp/">ELYZA, Inc.</a>, delivering language technologies for healthcare and industrial partners. My broader goal is to build language technologies that enable reliable human–machine collaboration.
+I am a Specially Appointed Assistant Professor in <a href="https://www.nlp.c.titech.ac.jp/index.en.html">the Okazaki Laboratory</a> at the <a href="https://www.isct.ac.jp/en">Institute of Science Tokyo</a>, working with Prof. Naoaki Okazaki. Before June 2025, I led applied LLM projects as Lead AI Engineer at <a href="https://elyza.co.jp/">ELYZA, Inc.</a>, delivering language technologies for healthcare and industrial partners. My broader goal is to build language technologies that enable reliable human–machine collaboration.
 
 Right now I'm especially focused on making large language models safer, stronger reasoners, and more controllable generators. Current directions include:
 
