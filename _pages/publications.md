@@ -39,6 +39,11 @@ author_profile: true
   **Modeling Personal Biases in Language Use by Inducing Personalized Word Embeddings.**  
   Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT 2019), Minneapolis, USA, June 2019.
 
+## Preprints
+- Junpei Komiyama, __Daisuke Oba__, Masafumi Oyamada.  
+  **Best-of-∞ – Asymptotic Performance of Test-Time Compute.**  
+  arXiv preprint arXiv:2509.21091, 2025. <a href="https://arxiv.org/abs/2509.21091">arXiv</a>.
+
 ## Domestic Conference Papers (in Japanese)
 - __大葉 大輔__, 金子正弘, ボレガラ ダヌシカ, 岡崎直観.  
   **大規模言語モデルの多言語社会的バイアス抑制における単言語ラベル付きデータの役割**  
