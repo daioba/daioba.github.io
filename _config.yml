@@ -82,21 +82,21 @@ analytics:
 author:
   name             : "Daisuke Oba"
   avatar           : "profile.jpg"
-  bio              : #"Second year PhD student <br>at The University of Tokyo"
-  location         : #"Tokyo, Japan" # "Ee-503, 4-6-1 Komaba, Meguro-Ku, Tokyo, 153-8505, Japan"
-  employer         :
+  bio              : "Full-time researcher at the Okazaki Laboratory (Institute of Science Tokyo), transitioning to Specially Appointed Assistant Professor in September 2025; formerly Lead AI Engineer at ELYZA."
+  location         : "Tokyo, Japan"
+  employer         : "Institute of Science Tokyo"
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : # oba@tkl.iis.u-tokyo.ac.jp
+  email            :
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  uri              : "https://daioba.github.io"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : #"daioba"
+  github           : "daioba"
   google_plus      :
   keybase          :
   instagram        :
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : #"replacethistwitterhandle"
+  twitter          :
   vine             :
   weibo            :
   xing             :

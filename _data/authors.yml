@@ -1,18 +1,8 @@
 # Authors
 
-Name Name:
-  name        : "Name Name"
-  uri         : "http://name.com"
-  email       : "name@name.com"
-  bio         : "This is the first name."
-  avatar      : "bio-photo-2.jpg"
-  twitter     : "name"
-  google_plus : "Name"
-
-Name2 Name2:
-  name        : "Name2 Name2"
-  email       : "name2@name2.com"
-  bio         : "I ordered what?"
-  avatar      : "bio-photo.jpg"
-  twitter     : "name2"
-  google_plus : "Name"
+Daisuke Oba:
+  name        : "Daisuke Oba"
+  uri         : "https://daioba.github.io"
+  email       :
+  bio         : "Full-time researcher (and Specially Appointed Assistant Professor from Sep 2025) at the Okazaki Laboratory, previously Lead AI Engineer at ELYZA."
+  avatar      : "profile.jpg"
