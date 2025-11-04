@@ -45,6 +45,8 @@ redirect_from:
 For the full list, please visit the <a href="/publications/">publications page</a>.
 
 ## Honors & Awards
+- 2025 — NLP若手の会 第 20 回シンポジウム スポンサー賞（Polaris.AI/）
+- 2025 — 2025 年度人工知能学会 全国大会 (第39回) 優秀賞
 - 2025 — 言語処理学会 第 31 回年次大会 スポンサー賞（日立製作所）  
 - 2022 — 情報処理学会 2022 年度研究会推薦 博士論文速報  
 - 2021 — IIS PhD Student Live 2021 Second Prize  
