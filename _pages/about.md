@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Specially Appointed Assistant Professor<br>Okazaki Laboratory, <a href="https://www.isct.ac.jp/en">Institute of Science Tokyo</a>.
 
 profile:
   align: right
