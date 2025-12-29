@@ -126,7 +126,6 @@
     html = "https://aclanthology.org/2024.findings-eacl.121",
     pages = "1722--1742",
     abbr={EACL},
-    bibtex_show={true},
     abstract = "Despite their impressive performance in a wide range of NLP tasks, Large Language Models (LLMs) have been reported to encode worrying-levels of gender biases. Prior work has proposed debiasing methods that require human labelled examples, data augmentation and fine-tuning of LLMs, which are computationally costly. Moreover, one might not even have access to the model parameters for performing debiasing such as in the case of closed LLMs such as GPT-4. To address this challenge, we propose bias suppression that prevents biased generations of LLMs by simply providing textual preambles constructed from manually designed templates and real-world statistics, without accessing to model parameters. We show that, using CrowsPairs dataset, our textual preambles covering counterfactual statements can suppress gender biases in English LLMs such as LLaMA2. Moreover, we find that gender-neutral descriptions of gender-biased objects can also suppress their gender biases. Moreover, we show that bias suppression has acceptable adverse effect on downstream task performance with HellaSwag and COPA."
 }
 
@@ -144,11 +143,11 @@
     address = "Miami, Florida, USA",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2024.findings-emnlp.771",
+    html = "https://aclanthology.org/2024.findings-emnlp.771",
     doi = "10.18653/v1/2024.findings-emnlp.771",
     pages = "13186--13214",
     abstract = "Language models often struggle with handling factual knowledge, exhibiting factual hallucination issue. This makes it vital to evaluate the models{'} ability to recall its parametric knowledge about facts. In this study, we introduce a knowledge probing benchmark, BELIEF(ICL), to evaluate the knowledge recall ability of both encoder- and decoder-based pre-trained language models (PLMs) from diverse perspectives. BELIEFs utilize a multi-prompt dataset to evaluate PLM{'}s accuracy, consistency, and reliability in factual knowledge recall. To enable a more reliable evaluation with BELIEFs, we semi-automatically create MyriadLAMA, which has massively diverse prompts. We validate the effectiveness of BELIEFs in comprehensively evaluating PLM{'}s knowledge recall ability on diverse PLMs, including recent large language models (LLMs). We then investigate key factors in memorizing and recalling facts in PLMs, such as model size, pretraining strategy and corpora, instruction-tuning process and in-context learning settings. Finally, we reveal the limitation of the prompt-based knowledge probing. The MyriadLAMA is publicized.",
     abbr={EMNLP},
-    bibtex_show={true},
 }
 
 @inproceedings{zhao-etal-2024-tracing,
@@ -164,9 +163,9 @@
     address = "St. Julian{'}s, Malta",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2024.eacl-long.127",
+    html = "https://aclanthology.org/2024.eacl-long.127",
     pages = "2088--2102",
     abbr={EACL},
-    bibtex_show={true},
     abstract = "Acquiring factual knowledge for language models (LMs) in low-resource languages poses a serious challenge, thus resorting to cross-lingual transfer in multilingual LMs (ML-LMs). In this study, we ask how ML-LMs acquire and represent factual knowledge. Using the multilingual factual knowledge probing dataset, mLAMA, we first conducted a neuron investigation of ML-LMs (specifically, multilingual BERT). We then traced the roots of facts back to the knowledge source (Wikipedia) to identify the ways in which ML-LMs acquire specific facts. We finally identified three patterns of acquiring and representing facts in ML-LMs: language-independent, cross-lingual shared and transferred, and devised methods for differentiating them. Our findings highlight the challenge of maintaining consistent factual knowledge across languages, underscoring the need for better fact representation learning in ML-LMs."
 }
 
@@ -178,7 +177,7 @@
   number={2},
   pages={467--490},
   year={2020},
-  bibtex_show={true},
+  html={https://www.jstage.jst.go.jp/article/jnlp/27/2/27_467/_article/-char/en},
   publisher={The Association for Natural Language Processing},
   abbr={JNLP},
 }
@@ -191,6 +190,7 @@
   publisher = {Springer-Verlag},
   address = {Berlin, Heidelberg},
   url = {https://doi.org/10.1007/978-3-031-24340-0_10},
+  html = {https://doi.org/10.1007/978-3-031-24340-0_10},
   doi = {10.1007/978-3-031-24340-0_10},
   abstract = {When people verbalize what they felt with various sensory functions, they could represent different meanings with the same words or the same meaning with different words; we might mean a different degree of coldness when we say ‘this beer is icy cold,’ while we could use different words such as “yellow” and “golden” to describe the appearance of the same beer. These interpersonal variations in word meanings not only prevent us from smoothly communicating with each other, but also cause troubles when we perform natural language processing tasks with computers. This study proposes a method of capturing interpersonal variations of word meanings by using personalized word embeddings acquired through a task of estimating the target (item) of a given reviews. Specifically, we adopt three methods for effective training of the item classifier; (1) modeling reviewer-specific parameters in a residual network, (2) fine-tuning of reviewer-specific parameters and (3) multi-task learning that estimates various metadata of the target item described in given reviews written by various reviewers. Experimental results with review datasets obtained from ratebeer.com and yelp.com confirmed that the proposed method is effective for estimating the target items. Looking into the acquired personalized word embeddings, we analyzed in detail which words have a strong semantic variation and revealed some trends in semantic variations of the word meanings.},
   booktitle = {Computational Linguistics and Intelligent Text Processing: 20th International Conference, CICLing 2019, La Rochelle, France, April 7–13, 2019, Revised Selected Papers, Part II},
@@ -198,7 +198,6 @@
   numpages = {14},
   keywords = {Personalized word embeddings, Semantic variation},
   location = {La Rochelle, France},
-  bibtex_show={true},
   abbr= {CICLing}
 }
 
@@ -217,9 +216,9 @@
     address = "Abu Dhabi, United Arab Emirates",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2022.findings-emnlp.472/",
+    html = "https://aclanthology.org/2022.findings-emnlp.472/",
     doi = "10.18653/v1/2022.findings-emnlp.472",
     pages = "6333--6344",
-    bibtex_show={true},
     abstract = "Entity disambiguation (ED) is typically solved by learning to classify a given mention into one of the entities in the model{'}s entity vocabulary by referring to their embeddings. However, this approach cannot address mentions of entities that are not covered by the entity vocabulary. Aiming to enhance the applicability of ED models, we propose a method of extending a state-of-the-art ED model by dynamically computing embeddings of out-of-vocabulary entities. Specifically, our method computes embeddings from entity descriptions and mention contexts. Experiments with standard benchmark datasets show that the extended model performs comparable to or better than existing models whose entity embeddings are trained for all candidate entities as well as embedding-free models. We release our source code and model checkpoints at https://github.com/studio-ousia/steel.",
     abbr = "EMNLP"
 }
@@ -235,10 +234,10 @@
     address = "Punta Cana, Dominican Republic",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2021.blackboxnlp-1.41",
+    html = "https://aclanthology.org/2021.blackboxnlp-1.41", 
     doi = "10.18653/v1/2021.blackboxnlp-1.41",
     pages = "518--528",
     abbr={BlackboxNLP},
-    bibtex_show={true},
     abstract = "Probing classifiers have been extensively used to inspect whether a model component captures specific linguistic phenomena. This top-down approach is, however, costly when we have no probable hypothesis on the association between the target model component and phenomena. In this study, aiming to provide a flexible, exploratory analysis of a neural model at various levels ranging from individual neurons to the model as a whole, we present a bottom-up approach to inspect the target neural model by using neuron representations obtained from a massive corpus of text. We first feed massive amount of text to the target model and collect sentences that strongly activate each neuron. We then abstract the collected sentences to obtain neuron representations that help us interpret the corresponding neurons; we augment the sentences with linguistic annotations (e.g., part-of-speech tags) and various metadata (e.g., topic and sentiment), and apply pattern mining and clustering techniques to the augmented sentences. We demonstrate the utility of our method by inspecting the pre-trained BERT. Our exploratory analysis reveals that i) specific phrases and domains of text are captured by individual neurons in BERT, ii) a group of neurons simultaneously capture the same linguistic phenomena, and iii) deeper-level layers capture more specific linguistic phenomena."
 }
 
@@ -255,9 +254,9 @@
     address = "Minneapolis, Minnesota",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/N19-1215",
+    html = "https://aclanthology.org/N19-1215",
     doi = "10.18653/v1/N19-1215",
     pages = "2102--2108",
     abbr={NAACL},
-    bibtex_show={true},
     abstract = "There exist biases in individual{'}s language use; the same word (e.g., cool) is used for expressing different meanings (e.g., temperature range) or different words (e.g., cloudy, hazy) are used for describing the same meaning. In this study, we propose a method of modeling such personal biases in word meanings (hereafter, semantic variations) with personalized word embeddings obtained by solving a task on subjective text while regarding words used by different individuals as different words. To prevent personalized word embeddings from being contaminated by other irrelevant biases, we solve a task of identifying a review-target (objective output) from a given review. To stabilize the training of this extreme multi-class classification, we perform a multi-task learning with metadata identification. Experimental results with reviews retrieved from RateBeer confirmed that the obtained personalized word embeddings improved the accuracy of sentiment analysis as well as the target task. Analysis of the obtained personalized word embeddings revealed trends in semantic variations related to frequent and adjective words."
 }
