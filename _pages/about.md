@@ -6,7 +6,7 @@ subtitle: Specially Appointed Assistant Professor<br><a href="https://www.nlp.c.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: top.PNG
   image_circular: false # crops the image to make it circular
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
