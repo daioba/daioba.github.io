@@ -190,7 +190,10 @@ exclude:
   - readme_preview/
   - vendor
   - _pages/projects.md
-  - _pages/dropdown.md
+  - _includes/projects_horizontal.liquid
+  - _includes/projects.liquid
+  - _pages/repositories.md
+  - _includes/repository/
 keep_files:
   - CNAME
   - .nojekyll
