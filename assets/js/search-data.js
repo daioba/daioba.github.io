@@ -389,6 +389,9 @@ ninja.data = [{
       },{id: "news-a-new-web-page-has-been-created",
           title: 'A new Web Page has been created.',
           description: "",
+          section: "News",},{id: "news-two-papers-were-accepted-at-iclr-2026",
+          title: 'Two papers were accepted at ICLR 2026 🇧🇷',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
