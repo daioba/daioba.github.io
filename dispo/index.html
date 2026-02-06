@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Diffusion-State Policy Optimization for Masked Diffusion Language Models - Oba et al.">
+  <meta name="description" content="DiSPO (Diffusion-State Policy Optimization) adds a credit-assignment layer for masked diffusion language models by branching at intermediate masked states, scoring completions, and updating newly filled tokens without extra multi-step rollouts.">
+  <meta name="keywords" content="masked diffusion language models, policy optimization, credit assignment, reinforcement learning, DiSPO">
+  <meta name="author" content="Daisuke Oba, Hiroki Furuta, Naoaki Okazaki">
+
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="daioba.github.io">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="Diffusion-State Policy Optimization for Masked Diffusion Language Models">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="DiSPO adds a credit-assignment layer for masked diffusion language models by branching at intermediate masked states, scoring completions, and updating newly filled tokens without extra multi-step rollouts.">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://daioba.github.io/dispo/">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://daioba.github.io/dispo/static/images/social_preview.png">
+
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Diffusion-State Policy Optimization for Masked Diffusion Language Models - Research Preview">
+  <meta property="article:author" content="Daisuke Oba">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="masked diffusion language models">
+  <meta property="article:tag" content="policy optimization">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <!--<meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">-->
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@dai0NLP">
+  <meta name="twitter:title" content="Diffusion-State Policy Optimization for Masked Diffusion Language Models">
+  <meta name="twitter:description" content="DiSPO adds a credit-assignment layer for masked diffusion language models by branching at intermediate masked states, scoring completions, and updating newly filled tokens without extra multi-step rollouts.">
+  <meta name="twitter:image" content="https://daioba.github.io/dispo/static/images/social_preview.png">
+
+  <meta name="twitter:image:alt" content="Diffusion-State Policy Optimization for Masked Diffusion Language Models - Research Preview">
+
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>Diffusion-State Policy Optimization for Masked Diffusion Language Models | Oba et al.</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Diffusion-State Policy Optimization for Masked Diffusion Language Models",
+    "description": "DiSPO adds a credit-assignment layer for masked diffusion language models by branching at intermediate masked states, scoring completions, and updating newly filled tokens without extra multi-step rollouts.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Daisuke Oba",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Hiroki Furuta"
+      },
+      {
+        "@type": "Person",
+        "name": "Naoaki Okazaki",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      }
+    ],
+    "url": "https://daioba.github.io/dispo/",
+    "image": "https://daioba.github.io/dispo/static/images/social_preview.png",
+    "keywords": ["masked diffusion language models", "policy optimization", "credit assignment", "reinforcement learning", "DiSPO"],
+    "abstract": "Masked diffusion language models generate by iteratively filling masked tokens over multiple denoising steps, so learning only from a terminal reward on the final completion yields coarse credit assignment over intermediate decisions. We propose DiSPO (Diffusion-State Policy Optimization), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling fillings for the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens--without additional multi-step diffusion rollouts. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that can be combined with terminal-feedback policy optimization using the same rollouts. On LLaDA-8B-Instruct, DiSPO consistently improves over the terminal-feedback diffu-GRPO baseline on math and planning benchmarks under matched rollout compute and optimizer steps.",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://daioba.github.io/dispo/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Diffusion language models"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Policy optimization"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Diffusion-State Policy Optimization for Masked Diffusion Language Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Daisuke Oba<sup>1</sup>,</span>
+              <span class="author-block">
+                Hiroki Furuta,</span>
+              <span class="author-block">
+                Naoaki Okazaki<sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><small>
+                <sup>1</sup>Institute of Science Tokyo
+              </small></span>
+              <br>
+              <span class="author-block"><small>Pre-print 2026</small></span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="#" aria-disabled="true"
+                        class="external-link button is-normal is-rounded is-light">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper (coming soon)</span>
+                      </a>
+                    </span>
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true"
+                    class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#" aria-disabled="true"
+                  class="external-link button is-normal is-rounded is-light">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Masked diffusion language models generate by iteratively filling masked tokens over multiple denoising steps, so learning only from a terminal reward on the final completion yields coarse credit assignment over intermediate decisions. We propose DiSPO (Diffusion-State Policy Optimization), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling fillings for the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens&mdash;without additional multi-step diffusion rollouts. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that can be combined with terminal-feedback policy optimization using the same rollouts. On LLaDA-8B-Instruct, DiSPO consistently improves over the terminal-feedback diffu-GRPO baseline on math and planning benchmarks under matched rollout compute and optimizer steps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Methodology -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Diffusion-State Policy Optimization</h2>
+      <div class="results-carousel method-static">
+        <div class="item">
+          <img src="static/images/dispo_method.png" alt="DiSPO methodology" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End methodology -->
+
+<!-- Algorithm -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Algorithm</h2>
+      <div class="results-carousel method-static">
+        <div class="item">
+          <img src="static/images/dispo_algo.png" alt="DiSPO algorithm" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End algorithm -->
+
+<!-- Experiments -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Experiments</h2>
+      <div class="results-carousel method-static experiments-wide">
+        <div class="item">
+          <img src="static/images/dispo_results.png" alt="DiSPO results" loading="lazy">
+        </div>
+      </div>
+      <div class="results-carousel method-static experiments-wide">
+        <div class="item">
+          <img src="static/images/dispo_reward.png" alt="DiSPO reward analysis" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End experiments -->
+
+
+<!-- BibTeX removed until arXiv is available -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
