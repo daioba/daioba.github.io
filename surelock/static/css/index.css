@@ -281,6 +281,7 @@ body {
   border-radius: var(--border-radius);
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .results-carousel .subtitle {
@@ -288,6 +289,26 @@ body {
   color: var(--text-secondary);
   margin-top: 1rem;
   font-weight: 500;
+}
+
+/* Slightly smaller static Methodology panel */
+.method-static .item {
+  width: 70% !important;
+  margin: 1rem auto;
+  padding: 1.25rem;
+}
+
+.method-static .tps-figure {
+  width: 60% !important;
+}
+
+.method-static .example-figure {
+  width: 80% !important;
+}
+
+.method-static {
+  display: flex;
+  justify-content: center;
 }
 
 /* Pagination and Misc Improvements */
@@ -332,7 +353,7 @@ body {
 
 /* Content Improvements */
 .content.has-text-justified {
-  font-size: 1.1rem;
+  font-size: 1.32rem;
   line-height: 1.8;
   color: var(--text-secondary);
 }
@@ -748,6 +769,3 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
-
