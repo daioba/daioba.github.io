@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding - Oba et al.">
+  <meta name="description" content="SureLock locks converged token positions in masked diffusion-LM decoding, skipping query/FFN compute while caching KV. This reduces per-iteration cost from O(N^2 d) to O(M N d) and cuts FLOPs by 30-50% on LLaDA-8B without quality loss.">
+  <meta name="keywords" content="masked diffusion language models, decoding acceleration, efficient inference, early stopping, SureLock">
+  <meta name="author" content="Daisuke Oba, Danushka Bollegala, Masahiro Kaneko, Naoaki Okazaki">
+
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="daioba.github.io">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="SureLock locks converged token positions in masked diffusion-LM decoding to skip Q/FFN compute while caching KV, reducing FLOPs by 30-50% on LLaDA-8B.">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://daioba.github.io/surelock/">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://daioba.github.io/surelock/static/images/social_preview.png">
+
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Daisuke Oba">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="masked diffusion language models">
+  <meta property="article:tag" content="efficient inference">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <!--<meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">-->
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@dai0NLP">
+  <meta name="twitter:title" content="Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding">
+  <meta name="twitter:description" content="SureLock locks converged tokens in masked diffusion-LM decoding to skip Q/FFN compute while caching KV, reducing FLOPs without quality loss.">
+  <meta name="twitter:image" content="https://daioba.github.io/surelock/static/images/social_preview.png">
+
+  <meta name="twitter:image:alt" content="Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding - Research Preview">
+
+
+  <!-- Academic/Research Specific 
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  -->
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding | Oba et al.</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding",
+    "description": "SureLock locks converged token positions in masked diffusion-LM decoding, skipping query/FFN compute while caching KV to reduce per-iteration cost and FLOPs without quality loss.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Daisuke Oba",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Danushka Bollegala",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "University of Liverpool"
+          },
+          {
+            "@type": "Organization",
+            "name": "Amazon"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Masahiro Kaneko",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "MBZUAI"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Naoaki Okazaki",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://daioba.github.io/surelock/",
+    "image": "https://daioba.github.io/surelock/static/images/social_preview.png",
+    "keywords": ["masked diffusion language models", "decoding acceleration", "efficient inference", "early stopping", "SureLock"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://daioba.github.io/surelock/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Daisuke Oba<sup>1</sup>,</span>
+              <span class="author-block">
+                Danushka Bollegala<sup>2,3</sup>,</span>
+              <span class="author-block">
+                Masahiro Kaneko<sup>4</sup>,</span>
+              <span class="author-block">
+                Naoaki Okazaki<sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><small>
+                <sup>1</sup>Institute of Science Tokyo&nbsp;&nbsp;
+                <sup>2</sup>University of Liverpool&nbsp;&nbsp;
+                <sup>3</sup>Amazon&nbsp;&nbsp;
+                <sup>4</sup>MBZUAI
+              </small></span>
+              <br>
+              <span class="author-block"><small>Accepted at ICLR 2026 🇧🇷</small></span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="#" aria-disabled="true"
+                        class="external-link button is-normal is-rounded is-light">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper (coming soon)</span>
+                      </a>
+                    </span>
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true"
+                    class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#" aria-disabled="true"
+                  class="external-link button is-normal is-rounded is-light">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Masked Diffusion Language Models generate sequences via iterative sampling that progressively unmasks tokens. However, they still recompute the attention and feed-forward blocks for every token position at every step&mdash;even when many unmasked tokens are essentially fixed, resulting in substantial waste in compute. We propose <strong>SureLock</strong>: when the posterior at an unmasked position has stabilized across steps (our <em>sure</em> condition), we <em>lock</em> that position&mdash;thereafter skipping its query projection and feed-forward sublayers&mdash;while caching its attention keys and values so other positions can continue to attend to it. This reduces the dominant per-iteration computational cost from O(N<sup>2</sup>d) to O(M N d) where N is the sequence length, M is the number of unlocked token positions, and d is the model dimension. In practice, M decreases as the iteration progresses, yielding substantial savings. On LLaDA-8B, SureLock reduces algorithmic FLOPs by 30-50% relative to the same sampler without locking, while maintaining comparable generation quality. We also provide a theoretical analysis to justify the design rationale of SureLock: monitoring only the local KL at the lock step suffices to bound the deviation in final token probabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Methodology -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Methodology</h2>
+      <div class="results-carousel method-static">
+        <div class="item">
+          <img src="static/images/method.png" alt="SureLock methodology overview" loading="lazy">
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Conceptual figure of iterative sampling. <strong>(a)</strong> The normal sampler (baseline) recomputes attention scores and FFN sublayers for every token position at every step, even after many tokens have become unmasked. <strong>(b)</strong> SureLock permanently stops recomputing for <em>locked</em> positions once they stabilize; cached K/V still allows other tokens to attend to them.
+        </p>
+      </div>
+      <div class="results-carousel method-static">
+        <div class="item">
+          <img src="static/images/surelock_algo.png" alt="SureLock algorithm overview" loading="lazy">
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Algorithms of our method; SureLock.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End methodology -->
+
+<!-- Experiments -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Experiments</h2>
+      <div class="results-carousel method-static">
+        <div class="item">
+          <img src="static/images/surelock_flops.png" alt="Step-wise FLOPs ratio with SureLock" loading="lazy">
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Step-wise FLOPs ratio. The ratio of step-wise algorithmic FLOPs consistently decreases as steps proceed, explaining later-step savings of computational cost. &epsilon; means the locking threshold.
+        </p>
+      </div>
+      <div class="results-carousel method-static">
+        <div class="item tps-figure">
+          <img src="static/images/surelock_tps.png" alt="Throughput behavior with SureLock" loading="lazy">
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Throughput behavior with SureLock. Per-step end-to-end TPS ratio increases as sampling progresses.
+        </p>
+      </div>
+      <div class="results-carousel method-static">
+        <div class="item example-figure">
+          <img src="static/images/surelock_example.png" alt="Baseline vs SureLock response comparison" loading="lazy">
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Comparison of responses between Baseline vs. SureLock on LLaDA-8B-Instruct. The question is sampled from MT-bench with question id=119.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End experiments -->
+
+
+<!-- Image carousel removed -->
+
+
+<!-- BibTeX removed until arXiv is available -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
