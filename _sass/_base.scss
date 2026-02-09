@@ -740,11 +740,26 @@ footer.sticky-bottom {
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
+    color: #444;
     border-top: 1px solid var(--global-divider-color);
-    padding-top: 1rem;
-    margin-top: 2rem;
+    padding-top: 0.25rem;
+    margin: 0 0 -0.75rem 0;
     text-align: right;
+    position: relative;
+  }
+
+  html[data-theme="dark"] & {
+    h2.bibliography {
+      color: #fff;
+    }
+
+    ol.bibliography li .abbr abbr {
+      color: #fff !important;
+    }
+
+    ol.bibliography li .abbr abbr a {
+      color: #fff;
+    }
   }
 
   ol.bibliography {
@@ -754,6 +769,7 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+      font-size: 1.0rem;
 
       .preview {
       }
@@ -766,6 +782,8 @@ footer.sticky-bottom {
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
           color: var(--global-card-bg-color) !important;
+          font-size: 0.92rem; // 調整
+          padding: 0.2rem 0.4rem; // 調整
 
           a {
             color: white;
@@ -811,6 +829,10 @@ footer.sticky-bottom {
             border-bottom: 1px dashed var(--global-text-color);
           }
         }
+      }
+
+      .periodical {
+        color: var(--global-text-color);
       }
 
       .links {
