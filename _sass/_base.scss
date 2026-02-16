@@ -776,17 +776,20 @@ footer.sticky-bottom {
 
       .abbr {
         margin-bottom: 0.5rem;
+        color: #fff;
 
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
-          color: var(--global-card-bg-color) !important;
+          color: inherit !important;
           font-size: 0.92rem; // 調整
           padding: 0.2rem 0.4rem; // 調整
 
-          a {
-            color: white;
+          a,
+          div,
+          span {
+            color: inherit !important;
 
             &:hover {
               text-decoration: none;
