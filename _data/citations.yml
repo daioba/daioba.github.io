@@ -1,22 +1,38 @@
 metadata:
-  last_updated: '2025-12-31'
+  last_updated: '2026-02-18'
 papers:
+  0HJ4NKsAAAAJ:0EnyYjriUFMC:
+    citations: 0
+    title: Diffusion-State Policy Optimization for Masked Diffusion Language Models
+    year: '2026'
   0HJ4NKsAAAAJ:2osOgNQ5qMEC:
-    citations: 8
+    citations: 9
     title: Exploratory model analysis using data-driven neuron representations
     year: '2021'
+  0HJ4NKsAAAAJ:5nxA0vEk-isC:
+    citations: 0
+    title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
+    year: '2026'
+  0HJ4NKsAAAAJ:8k81kl-MbHgC:
+    citations: 0
+    title: 'Best-of-Infinity: Asymptotic Performance of Test-Time Compute'
+    year: '2025'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
     citations: 2
     title: 'Personal semantic variations in word meanings: Induction, application, and analysis'
     year: '2020'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 5
+    citations: 8
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
   0HJ4NKsAAAAJ:Tyk-4Ss8FVUC:
     citations: 4
     title: Dynamic data augmentation with gating networks for time series recognition
     year: '2022'
+  0HJ4NKsAAAAJ:UebtZRa9Y70C:
+    citations: 0
+    title: Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs
+    year: '2026'
   0HJ4NKsAAAAJ:Y0pCki6q_DkC:
     citations: 1
     title: Dynamic data augmentation with gating networks
@@ -30,9 +46,13 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 68
+    citations: 73
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
+  0HJ4NKsAAAAJ:hqOjcs7Dif8C:
+    citations: 0
+    title: Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding
+    year: '2026'
   0HJ4NKsAAAAJ:qjMakFHDy7sC:
     citations: 3
     title: Entity embedding completion for wide-coverage entity disambiguation
