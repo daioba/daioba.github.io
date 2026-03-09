@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-02-18'
+  last_updated: '2026-03-09'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -15,14 +15,14 @@ papers:
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
     citations: 0
-    title: 'Best-of-Infinity: Asymptotic Performance of Test-Time Compute'
-    year: '2025'
+    title: 'Best-of-Infinity: Asymptotic Performance of Test-Time LLM Ensembling'
+    year: '2026'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
     citations: 2
     title: 'Personal semantic variations in word meanings: Induction, application, and analysis'
     year: '2020'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 8
+    citations: 9
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
   0HJ4NKsAAAAJ:Tyk-4Ss8FVUC:
@@ -57,16 +57,12 @@ papers:
     citations: 3
     title: Entity embedding completion for wide-coverage entity disambiguation
     year: '2022'
-  0HJ4NKsAAAAJ:roLk4NBRz8UC:
-    citations: 0
-    title: Best-of- -- Asymptotic Performance of Test-Time Compute
-    year: '2025'
   0HJ4NKsAAAAJ:u-x6o8ySG0sC:
     citations: 3
     title: Understanding interpersonal variations in word meanings via review target identification
     year: '2019'
   0HJ4NKsAAAAJ:ufrVoPGSRksC:
-    citations: 14
+    citations: 15
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
