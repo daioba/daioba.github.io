@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-09'
+  last_updated: '2026-04-06'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -22,9 +22,13 @@ papers:
     title: 'Personal semantic variations in word meanings: Induction, application, and analysis'
     year: '2020'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 9
+    citations: 11
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
+  0HJ4NKsAAAAJ:MXK_kJrjxJIC:
+    citations: 1
+    title: 'JUBAKU: An Adversarial Benchmark for Exposing Culturally Grounded Stereotypes in Japanese LLMs'
+    year: '2026'
   0HJ4NKsAAAAJ:Tyk-4Ss8FVUC:
     citations: 4
     title: Dynamic data augmentation with gating networks for time series recognition
@@ -46,7 +50,7 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 73
+    citations: 74
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
@@ -62,7 +66,7 @@ papers:
     title: Understanding interpersonal variations in word meanings via review target identification
     year: '2019'
   0HJ4NKsAAAAJ:ufrVoPGSRksC:
-    citations: 15
+    citations: 16
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
