@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-22'
+  last_updated: '2026-04-27'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -9,6 +9,10 @@ papers:
     citations: 9
     title: Exploratory model analysis using data-driven neuron representations
     year: '2021'
+  0HJ4NKsAAAAJ:3fE2CSJIrl8C:
+    citations: 0
+    title: Modeling Word Meanings by Individuals and Its Applications
+    year: '2020'
   0HJ4NKsAAAAJ:5nxA0vEk-isC:
     citations: 0
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
@@ -22,7 +26,7 @@ papers:
     title: 'Personal semantic variations in word meanings: Induction, application, and analysis'
     year: '2020'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 11
+    citations: 12
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
   0HJ4NKsAAAAJ:MXK_kJrjxJIC:
@@ -30,7 +34,7 @@ papers:
     title: 'JUBAKU: An Adversarial Benchmark for Exposing Culturally Grounded Stereotypes in Japanese LLMs'
     year: '2026'
   0HJ4NKsAAAAJ:Tyk-4Ss8FVUC:
-    citations: 4
+    citations: 5
     title: Dynamic data augmentation with gating networks for time series recognition
     year: '2022'
   0HJ4NKsAAAAJ:UebtZRa9Y70C:
@@ -66,10 +70,10 @@ papers:
     title: Understanding interpersonal variations in word meanings via review target identification
     year: '2019'
   0HJ4NKsAAAAJ:ufrVoPGSRksC:
-    citations: 16
+    citations: 17
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
-    citations: 1
+    citations: 2
     title: 'Perplm: Personalized fine-tuning of pretrained language models via writer-specific intermediate learning and prompts'
     year: '2023'
