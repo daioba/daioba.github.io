@@ -392,6 +392,9 @@ ninja.data = [{
           section: "News",},{id: "news-two-papers-were-accepted-at-iclr-2026",
           title: 'Two papers were accepted at ICLR 2026 🇧🇷',
           description: "",
+          section: "News",},{id: "news-three-papers-were-accepted-at-icml-2026",
+          title: 'Three papers were accepted at ICML 2026 🇰🇷',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
