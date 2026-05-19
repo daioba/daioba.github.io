@@ -780,11 +780,15 @@ footer.sticky-bottom {
 
         abbr {
           display: inline-block;
+          width: fit-content;
+          min-width: 3.2rem;
+          max-width: 100%;
+          white-space: nowrap;
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
           color: inherit !important;
           font-size: 0.92rem; // 調整
-          padding: 0.2rem 0.4rem; // 調整
+          padding: 0.2rem 0.85rem; // 調整
 
           a,
           div,
