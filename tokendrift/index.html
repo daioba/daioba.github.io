@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Drifting Objectives for Refining Discrete Diffusion Language Models - Oba et al.">
+  <meta name="description" content="TokenDrift lifts categorical predictions to soft-token features, applies anti-symmetric drifting in a frozen semantic space, and backpropagates stop-gradient feature targets to DDLM logits.">
+  <meta name="keywords" content="discrete diffusion language models, drifting objectives, diffusion language models, TokenDrift">
+  <meta name="author" content="Daisuke Oba, Hiroki Furuta, Naoaki Okazaki">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="daioba.github.io">
+  <meta property="og:title" content="Drifting Objectives for Refining Discrete Diffusion Language Models">
+  <meta property="og:description" content="TokenDrift transfers drifting objectives to discrete diffusion language models through soft-token features and stop-gradient feature targets.">
+  <meta property="og:url" content="https://daioba.github.io/tokendrift/">
+  <meta property="og:image" content="https://daioba.github.io/tokendrift/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Drifting Objectives for Refining Discrete Diffusion Language Models - Research Preview">
+  <meta property="article:author" content="Daisuke Oba">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="discrete diffusion language models">
+  <meta property="article:tag" content="drifting objectives">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@dai0NLP">
+  <meta name="twitter:title" content="Drifting Objectives for Refining Discrete Diffusion Language Models">
+  <meta name="twitter:description" content="TokenDrift transfers drifting objectives to discrete diffusion language models through soft-token features and stop-gradient feature targets.">
+  <meta name="twitter:image" content="https://daioba.github.io/tokendrift/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="Drifting Objectives for Refining Discrete Diffusion Language Models - Research Preview">
+
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>Drifting Objectives for Refining Discrete Diffusion Language Models | Oba et al.</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Drifting Objectives for Refining Discrete Diffusion Language Models",
+    "description": "TokenDrift lifts categorical predictions to soft-token features, applies anti-symmetric drifting in a frozen semantic space, and backpropagates stop-gradient feature targets to DDLM logits.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Daisuke Oba",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Hiroki Furuta"
+      },
+      {
+        "@type": "Person",
+        "name": "Naoaki Okazaki",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "Institute of Science Tokyo"
+          },
+          {
+            "@type": "Organization",
+            "name": "AIST"
+          },
+          {
+            "@type": "Organization",
+            "name": "NII LLMC"
+          }
+        ]
+      }
+    ],
+    "url": "https://daioba.github.io/tokendrift/",
+    "image": "https://daioba.github.io/tokendrift/static/images/social_preview.png",
+    "keywords": ["discrete diffusion language models", "drifting objectives", "diffusion language models", "TokenDrift"],
+    "abstract": "Discrete diffusion language models generate text by iteratively denoising categorical token sequences, while recent drifting methods for continuous generators suggest that part of this sampling-time correction can instead be absorbed into training through an anti-symmetric fixed-point objective. We formulate TokenDrift, a drifting objective that lifts categorical predictions to soft-token features, applies anti-symmetric drifting in a frozen semantic space, and backpropagates the resulting stop-gradient feature target to DDLM logits.",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://daioba.github.io/tokendrift/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Discrete diffusion language models"
+      },
+      {
+        "@type": "Thing",
+        "name": "Drifting objectives"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Drifting Objectives for Refining Discrete Diffusion Language Models</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Daisuke Oba<sup>1</sup>,</span>
+                <span class="author-block">Hiroki Furuta,</span>
+                <span class="author-block">Naoaki Okazaki<sup>1,2,3</sup></span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><small>
+                  <sup>1</sup>Institute of Science Tokyo&nbsp;&nbsp;
+                  <sup>2</sup>AIST&nbsp;&nbsp;
+                  <sup>3</sup>NII LLMC
+                </small></span>
+                <br>
+                <span class="author-block"><small>Pre-print 2026</small></span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true" class="external-link button is-normal is-rounded is-light">
+                      <span class="icon"><i class="ai ai-arxiv"></i></span>
+                      <span>arXiv (coming soon)</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true" class="external-link button is-normal is-rounded is-light">
+                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                      <span>Paper (coming soon)</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true" class="external-link button is-normal is-rounded is-light">
+                      <span class="icon"><i class="fab fa-github"></i></span>
+                      <span>Code (coming soon)</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true" class="external-link button is-normal is-rounded is-light">
+                      <span class="icon"><i class="fas fa-external-link-alt"></i></span>
+                      <span>OpenReview (coming soon)</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true" class="external-link button is-normal is-rounded is-light">
+                      <span class="icon"><i class="fas fa-chalkboard"></i></span>
+                      <span>Poster (coming soon)</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Discrete diffusion language models (DDLMs) generate text by iteratively denoising categorical token sequences, while recent drifting methods for continuous generators suggest that part of this sampling-time correction can instead be absorbed into training through an anti-symmetric fixed-point objective. We study how to transfer this principle to DDLMs, where the main challenge is the interface with discrete text: hard token samples are non-differentiable, and categorical predictions do not directly provide continuous samples to drift. We formulate <b>TokenDrift</b>, a drifting objective that lifts categorical predictions to soft-token features, applies anti-symmetric drifting in a frozen semantic space, and backpropagates the resulting stop-gradient feature target to DDLM logits. In controlled continual-training experiments with masked and uniform-state diffusion backbones, TokenDrift improves fixed-NFE generation quality over matched continuation baselines, reducing Gen.-PPL at 4 NFEs by 89% on MDLM and 86% on DUO. These results suggest that drifting can provide a practical refinement objective for DDLMs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-widescreen">
+          <h2 class="title is-3 has-text-centered">TokenDrift</h2>
+          <div class="content section-copy">
+            <p>
+              Original drifting constructs <span class="token-green">a stop-gradient target h<sup>*</sup></span> by moving <span class="token-green">the generated feature h</span> along a <span class="token-purple">drift field V</span>. For discrete text, hard token sampling <strong>blocks gradients</strong>, so we lift token probabilities to <span class="token-gold">soft embeddings</span>, compute the drift target in feature space, and backpropagate the loss to logits.
+            </p>
+          </div>
+          <div class="results-carousel tokendrift-figure">
+            <div class="item">
+              <img src="static/images/drift_figure.png" alt="TokenDrift overview figure" loading="lazy">
+              <p class="figure-caption"><strong>Overview of our drifting formulation for discrete diffusion language models.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container is-max-widescreen">
+          <h2 class="title is-3 has-text-centered">Training Dynamics</h2>
+          <div class="content section-copy">
+            <p>
+              As drifting training progresses, Gen.-PPL decreases across the NFEs, showing that our drifting objective progressively improves fixed-budget generation quality rather than merely selecting a better final checkpoint.
+            </p>
+          </div>
+          <div class="results-carousel tokendrift-figure">
+            <div class="item">
+              <img src="static/images/main_curve.png" alt="Training dynamics figure" loading="lazy">
+              <p class="figure-caption"><strong>Training dynamics from released MDLM and DUO checkpoints.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-widescreen">
+          <h2 class="title is-3 has-text-centered">Few-shot Generation</h2>
+          <div class="results-carousel tokendrift-table">
+            <div class="item">
+              <img src="static/images/drift_table1.png" alt="OWT few-step generation results for masked diffusion" loading="lazy">
+              <p class="figure-caption"><strong>OWT few-step generation results for masked diffusion (MDLM) at ckpt. 13k.</strong></p>
+            </div>
+          </div>
+          <div class="results-carousel tokendrift-table">
+            <div class="item">
+              <img src="static/images/drift_table2.png" alt="OWT few-step generation results for uniform-state diffusion" loading="lazy">
+              <p class="figure-caption"><strong>OWT few-step generation results for uniform-state diffusion (DUO) at ckpt. 13k.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
