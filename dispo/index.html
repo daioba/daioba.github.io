@@ -129,7 +129,7 @@
     "url": "https://daioba.github.io/dispo/",
     "image": "https://daioba.github.io/dispo/static/images/social_preview.png",
     "keywords": ["masked diffusion language models", "policy optimization", "credit assignment", "reinforcement learning", "DiSPO"],
-    "abstract": "Masked diffusion language models generate by iteratively filling masked tokens over multiple denoising steps, so learning only from a terminal reward on the final completion yields coarse credit assignment over intermediate decisions. We propose DiSPO (Diffusion-State Policy Optimization), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling fillings for the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens--without additional multi-step diffusion rollouts. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that can be combined with terminal-feedback policy optimization using the same rollouts. On LLaDA-8B-Instruct, DiSPO consistently improves over the terminal-feedback diffu-GRPO baseline on math and planning benchmarks under matched rollout compute and optimizer steps.",
+    "abstract": "Masked diffusion language models generate text through iterative masked-token filling, but terminal-only rewards on final completions provide coarse credit assignment for the intermediate filling decisions that shape the generation process. We propose Diffusion-State Policy Optimization (DiSPO), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens, requiring no additional multi-step diffusion rollouts or optimizer steps. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that reuses the same rollouts as terminal-feedback policy optimization. Experiments on LLaDA-8B-Instruct show that DiSPO consistently improves terminal-feedback baselines, including diffu-GRPO and SPG, on math and planning benchmarks under matched rollout compute and optimizer steps, supporting its use as a general plug-in for masked diffusion policy optimization.",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "mainEntity": {
@@ -248,7 +248,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Masked diffusion language models generate by iteratively filling masked tokens over multiple denoising steps, so learning only from a terminal reward on the final completion yields coarse credit assignment over intermediate decisions. We propose DiSPO (Diffusion-State Policy Optimization), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling fillings for the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens&mdash;without additional multi-step diffusion rollouts. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that can be combined with terminal-feedback policy optimization using the same rollouts. On LLaDA-8B-Instruct, DiSPO consistently improves over the terminal-feedback diffu-GRPO baseline on math and planning benchmarks under matched rollout compute and optimizer steps.
+            Masked diffusion language models generate text through iterative masked-token filling, but terminal-only rewards on final completions provide coarse credit assignment for the intermediate filling decisions that shape the generation process. We propose Diffusion-State Policy Optimization (DiSPO), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens, requiring no additional multi-step diffusion rollouts or optimizer steps. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that reuses the same rollouts as terminal-feedback policy optimization. Experiments on LLaDA-8B-Instruct show that DiSPO consistently improves terminal-feedback baselines, including diffu-GRPO and SPG, on math and planning benchmarks under matched rollout compute and optimizer steps, supporting its use as a general plug-in for masked diffusion policy optimization.
           </p>
         </div>
       </div>
@@ -261,10 +261,11 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container is-max-widescreen">
-      <h2 class="title is-3 has-text-centered">Diffusion-State Policy Optimization</h2>
-      <div class="results-carousel method-static">
+      <h2 class="title is-3 has-text-centered">DiSPO: Diffusion-State Policy Optimization</h2>
+      <div class="results-carousel method-static overview-wide">
         <div class="item">
-          <img src="static/images/dispo_method.png" alt="DiSPO methodology" loading="lazy">
+          <img src="static/images/DiSPO_overview.png" alt="DiSPO overview" loading="lazy">
+          <p class="figure-caption"><strong>Conceptual overview.</strong> <strong><em>Left</em></strong>: Terminal-feedback PO assigns reward to the final denoising trajectory. <strong><em>Right</em></strong>: DiSPO branches from intermediate masked states using cached logits, scores the branched completions with the same reward, and updates only newly filled tokens.</p>
         </div>
       </div>
     </div>
@@ -277,9 +278,9 @@
   <div class="hero-body">
     <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered">Algorithm</h2>
-      <div class="results-carousel method-static">
+      <div class="results-carousel method-static algorithm-wide">
         <div class="item">
-          <img src="static/images/dispo_algo.png" alt="DiSPO algorithm" loading="lazy">
+          <img src="static/images/dispo_algo_np.png" alt="DiSPO algorithm" loading="lazy">
         </div>
       </div>
     </div>
@@ -294,7 +295,14 @@
       <h2 class="title is-3 has-text-centered">Experiments</h2>
       <div class="results-carousel method-static experiments-wide">
         <div class="item">
-          <img src="static/images/dispo_results.png" alt="DiSPO results" loading="lazy">
+          <img src="static/images/dispo_table1.png" alt="DiSPO math benchmark results" loading="lazy">
+          <p class="figure-caption"><strong>DiSPO on LLaDA.</strong> Exact-match accuracy (%) on planning and math reasoning, evaluated with <i>N</i><sub>gen</sub> in {128, 256, 512}. Matched-compute comparisons are made within each base optimizer: diffu-GRPO vs. DiSPO<sub>diffu-GRPO</sub> and SPG vs. DiSPO<sub>SPG</sub>, with the same training <i>N</i><sub>gen</sub> = 256, multi-step diffusion rollout budget, and optimizer steps. † indicates a non-matched-compute reward-shaping baseline included for reference. ‡ indicates results reported by Zhao et al.</p>
+        </div>
+      </div>
+      <div class="results-carousel method-static experiments-wide">
+        <div class="item">
+          <img src="static/images/dispo_table2.png" alt="DiSPO planning benchmark results" loading="lazy">
+          <p class="figure-caption"><strong>DiSPO on LLaDA-SFT.</strong> Under the same evaluation and matched-compute setup as the main results, DiSPO uses a conservative step weight (<i>α</i><sub>step</sub> = 0.1) and still improves SFT + diffu-GRPO across planning and math benchmarks. ‡ indicates results reported by Zhao et al.</p>
         </div>
       </div>
       <div class="results-carousel method-static experiments-wide">

@@ -291,11 +291,28 @@ body {
   font-weight: 500;
 }
 
+.figure-caption {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
 /* Slightly smaller static Methodology panel */
 .method-static .item {
   width: 70% !important;
   margin: 1rem auto;
   padding: 1.25rem;
+}
+
+.overview-wide .item {
+  width: 94% !important;
+  max-width: 1120px;
+}
+
+.algorithm-wide .item {
+  width: 94% !important;
+  max-width: 1120px;
 }
 
 .method-static .tps-figure {
@@ -307,7 +324,8 @@ body {
 }
 
 .experiments-wide .item {
-  width: 90% !important;
+  width: 94% !important;
+  max-width: 1120px;
 }
 
 .method-static {
@@ -357,9 +375,9 @@ body {
 
 /* Content Improvements */
 .content.has-text-justified {
-  font-size: 1.32rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-primary);
 }
 
 .content.has-text-justified p {
