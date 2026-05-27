@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-05-15'
+  last_updated: '2026-05-27'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -9,10 +9,6 @@ papers:
     citations: 9
     title: Exploratory model analysis using data-driven neuron representations
     year: '2021'
-  0HJ4NKsAAAAJ:3fE2CSJIrl8C:
-    citations: 0
-    title: Modeling Word Meanings by Individuals and Its Applications
-    year: '2020'
   0HJ4NKsAAAAJ:5nxA0vEk-isC:
     citations: 0
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
@@ -54,12 +50,16 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 75
+    citations: 77
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
     citations: 0
     title: Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding
+    year: '2026'
+  0HJ4NKsAAAAJ:kNdYIx-mwKoC:
+    citations: 0
+    title: Drifting Objectives for Refining Discrete Diffusion Language Models
     year: '2026'
   0HJ4NKsAAAAJ:qjMakFHDy7sC:
     citations: 3
