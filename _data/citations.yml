@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-05-27'
+  last_updated: '2026-06-03'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -34,7 +34,7 @@ papers:
     title: Dynamic data augmentation with gating networks for time series recognition
     year: '2022'
   0HJ4NKsAAAAJ:UebtZRa9Y70C:
-    citations: 0
+    citations: 1
     title: Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs
     year: '2026'
   0HJ4NKsAAAAJ:Y0pCki6q_DkC:
@@ -74,6 +74,6 @@ papers:
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
-    citations: 2
+    citations: 3
     title: 'Perplm: Personalized fine-tuning of pretrained language models via writer-specific intermediate learning and prompts'
     year: '2023'
