@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-06-03'
+  last_updated: '2026-06-08'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -10,11 +10,11 @@ papers:
     title: Exploratory model analysis using data-driven neuron representations
     year: '2021'
   0HJ4NKsAAAAJ:5nxA0vEk-isC:
-    citations: 0
+    citations: 1
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
-    citations: 3
+    citations: 4
     title: 'Best-of-Infinity: Asymptotic Performance of Test-Time LLM Ensembling'
     year: '2026'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
