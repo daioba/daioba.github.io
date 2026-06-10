@@ -395,6 +395,9 @@ ninja.data = [{
           section: "News",},{id: "news-three-papers-were-accepted-at-icml-2026",
           title: 'Three papers were accepted at ICML 2026 🇰🇷',
           description: "",
+          section: "News",},{id: "news-i-will-give-an-invited-talk-at-the-82nd-nagoya-nlp-seminar-on-july-14-2026",
+          title: 'I will give an invited talk at the 82nd Nagoya NLP Seminar on...',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
