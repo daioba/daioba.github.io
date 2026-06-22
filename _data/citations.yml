@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-06-08'
+  last_updated: '2026-06-22'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -21,6 +21,10 @@ papers:
     citations: 2
     title: 'Personal semantic variations in word meanings: Induction, application, and analysis'
     year: '2020'
+  0HJ4NKsAAAAJ:KlAtU1dfN6UC:
+    citations: 0
+    title: 'Beyond Perplexity: UTF-8 Validity in Byte-aware Language Models'
+    year: '2026'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
     citations: 12
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
@@ -50,7 +54,7 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 77
+    citations: 78
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
