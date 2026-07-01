@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-06-22'
+  last_updated: '2026-07-01'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 0
@@ -10,7 +10,7 @@ papers:
     title: Exploratory model analysis using data-driven neuron representations
     year: '2021'
   0HJ4NKsAAAAJ:5nxA0vEk-isC:
-    citations: 1
+    citations: 2
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
@@ -26,7 +26,7 @@ papers:
     title: 'Beyond Perplexity: UTF-8 Validity in Byte-aware Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 12
+    citations: 13
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
   0HJ4NKsAAAAJ:MXK_kJrjxJIC:
@@ -54,7 +54,7 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 78
+    citations: 79
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
@@ -74,7 +74,7 @@ papers:
     title: Understanding interpersonal variations in word meanings via review target identification
     year: '2019'
   0HJ4NKsAAAAJ:ufrVoPGSRksC:
-    citations: 17
+    citations: 18
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
