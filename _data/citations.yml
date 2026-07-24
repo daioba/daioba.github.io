@@ -1,8 +1,8 @@
 metadata:
-  last_updated: '2026-07-06'
+  last_updated: '2026-07-24'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
-    citations: 0
+    citations: 1
     title: Diffusion-State Policy Optimization for Masked Diffusion Language Models
     year: '2026'
   0HJ4NKsAAAAJ:2osOgNQ5qMEC:
@@ -14,7 +14,7 @@ papers:
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
-    citations: 5
+    citations: 6
     title: 'Best-of-Infinity: Asymptotic Performance of Test-Time LLM Ensembling'
     year: '2026'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
@@ -38,7 +38,7 @@ papers:
     title: Dynamic data augmentation with gating networks for time series recognition
     year: '2022'
   0HJ4NKsAAAAJ:UebtZRa9Y70C:
-    citations: 1
+    citations: 2
     title: Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs
     year: '2026'
   0HJ4NKsAAAAJ:Y0pCki6q_DkC:
@@ -54,7 +54,7 @@ papers:
     title: Modeling personal biases in language use by inducing personalized word embeddings
     year: '2019'
   0HJ4NKsAAAAJ:eQOLeE2rZwMC:
-    citations: 79
+    citations: 80
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
