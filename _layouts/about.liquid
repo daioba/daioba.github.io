@@ -35,6 +35,7 @@ layout: default
     </h1>
     <p class="desc">{{ page.subtitle }}</p>
   </header>
+  <script defer src="{{ '/assets/js/title-diffusion.js' | relative_url | bust_file_cache }}"></script>
 
   <article>
     <div class="clearfix">{{ content }}</div>
