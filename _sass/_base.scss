@@ -35,6 +35,15 @@ table {
   }
 }
 
+// mdbootstrap's `table.table-sm th, table.table-sm td` sets 0.6rem of block
+// padding and outweighs the element-level rule above, so match its specificity
+// to tighten the news list without touching the other tables.
+.news table.table th,
+.news table.table td {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 a,
 table.table a {
   color: var(--global-theme-color);
