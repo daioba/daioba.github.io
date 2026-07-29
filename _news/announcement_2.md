@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two papers were accepted at [ICLR 2026](https://iclr.cc/Conferences/2026) 🇧🇷
+Two papers were accepted at [ICLR 2026](https://iclr.cc/Conferences/2026) 

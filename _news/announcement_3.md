@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Three papers were accepted at [ICML 2026](https://icml.cc/Conferences/2026) 🇰🇷
+Three papers were accepted at [ICML 2026](https://icml.cc/Conferences/2026)

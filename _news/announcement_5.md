@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper was accepted at the [AI4Math Workshop](https://ai4math2026.github.io/) @ ICML 2026 🇰🇷
+A paper was accepted at the [AI4Math Workshop](https://ai4math2026.github.io/) @ [ICML 2026](https://icml.cc/Conferences/2026) 
