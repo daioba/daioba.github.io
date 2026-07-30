@@ -9,19 +9,19 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-publications",
+  },{id: "nav-publications",
           title: "publications",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
+          },
+        },{id: "nav-talks",
+          title: "talks",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
           },
         },{id: "post-a-post-with-plotly-js",
         
@@ -400,6 +400,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-a-paper-was-accepted-at-the-nonar-lm-workshop-colm-2026",
           title: 'A paper was accepted at the NonAR-LM Workshop @ COLM 2026',
+          description: "",
+          section: "News",},{id: "news-our-tutorial-on-diffusion-lms-was-accepted-at-aacl-ijcnlp-2026",
+          title: 'Our tutorial on Diffusion LMs was accepted at AACL-IJCNLP 2026',
           description: "",
           section: "News",},{
         id: 'social-cv',
