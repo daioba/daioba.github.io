@@ -334,6 +334,13 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
+  // A page's `title` is also its <h1>, which the theme deliberately keeps
+  // lowercase, so capitalise the tabs here instead. Scoped to the anchors: the
+  // search item is a button wrapping its own .nav-link and must stay "ctrl k".
+  .navbar-nav .nav-item > a.nav-link {
+    text-transform: capitalize;
+  }
+
   .navbar-brand.social {
     padding-bottom: 0;
     padding-top: 0;
