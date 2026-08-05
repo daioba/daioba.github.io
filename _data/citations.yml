@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-24'
+  last_updated: '2026-08-05'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 1
@@ -14,7 +14,7 @@ papers:
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
-    citations: 6
+    citations: 7
     title: 'Best-of-Infinity: Asymptotic Performance of Test-Time LLM Ensembling'
     year: '2026'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
@@ -26,7 +26,7 @@ papers:
     title: 'Beyond Perplexity: UTF-8 Validity in Byte-aware Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:LkGwnXOMwfcC:
-    citations: 13
+    citations: 14
     title: What matters in memorizing and recalling facts? multifaceted benchmarks for knowledge probing in language models
     year: '2024'
   0HJ4NKsAAAAJ:MXK_kJrjxJIC:
@@ -38,13 +38,17 @@ papers:
     title: Dynamic data augmentation with gating networks for time series recognition
     year: '2022'
   0HJ4NKsAAAAJ:UebtZRa9Y70C:
-    citations: 2
+    citations: 3
     title: Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs
     year: '2026'
   0HJ4NKsAAAAJ:Y0pCki6q_DkC:
     citations: 1
     title: Dynamic data augmentation with gating networks
     year: '2021'
+  0HJ4NKsAAAAJ:Zph67rFs4hoC:
+    citations: 0
+    title: Best-of- -- Asymptotic Performance of Test-Time LLM Ensembling
+    year: '2025'
   0HJ4NKsAAAAJ:_FxGoFyzp5QC:
     citations: 1
     title: What Matters in Learning Facts in Language Models? Multifaceted Knowledge Probing with Diverse Multi-Prompt Datasets
@@ -58,7 +62,7 @@ papers:
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
-    citations: 0
+    citations: 1
     title: Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding
     year: '2026'
   0HJ4NKsAAAAJ:kNdYIx-mwKoC:
