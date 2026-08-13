@@ -8,7 +8,7 @@ nav_order: 3
 
 ## Contributed Talks
 
-- Nov-08-2026: [AACL-IJCNLP 2026](https://2026.aaclnet.org/), Tutorial: "Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation" (acceptance rate: 25%, upcoming)
+- Nov-08-2026: [AACL-IJCNLP 2026](https://2026.aaclnet.org/), Tutorial: ["Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation"](https://dllm-aacl.github.io/) (acceptance rate: 25%, upcoming)
 
 ## Invited Talks
 
