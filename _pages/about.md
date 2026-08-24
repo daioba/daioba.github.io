@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: Specially Appointed Assistant Professor<br><a href="https://www.nlp.c.titech.ac.jp/index.en.html">Okazaki Laboratory</a>, <a href="https://www.isct.ac.jp/en">Institute of Science Tokyo</a>, Japan.
 
