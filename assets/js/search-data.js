@@ -404,6 +404,9 @@ ninja.data = [{
           section: "News",},{id: "news-our-tutorial-on-diffusion-lms-was-accepted-at-aacl-ijcnlp-2026",
           title: 'Our tutorial on Diffusion LMs was accepted at AACL-IJCNLP 2026',
           description: "",
+          section: "News",},{id: "news-a-paper-was-accepted-at-emnlp-2026",
+          title: 'A paper was accepted at EMNLP 2026',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
