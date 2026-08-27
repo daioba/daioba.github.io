@@ -12,3 +12,15 @@ node_modules/
 vendor
 .idea
 .venv
+CV.tex
+CV.bib
+CV.aux
+CV.bbl
+CV.blg
+CV.dvi
+CV.fdb_latexmk
+CV.fls
+CV.log
+CV.out
+CV.pdf
+CV.synctex.gz
