@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-08-28'
+  last_updated: '2026-09-07'
 papers:
   0HJ4NKsAAAAJ:0EnyYjriUFMC:
     citations: 1
@@ -14,7 +14,7 @@ papers:
     title: 'From Correspondence to Actions: Human-Like Multi-Image Spatial Reasoning in Multi-modal Large Language Models'
     year: '2026'
   0HJ4NKsAAAAJ:8k81kl-MbHgC:
-    citations: 7
+    citations: 8
     title: 'Best-of-Infinity: Asymptotic Performance of Test-Time LLM Ensembling'
     year: '2026'
   0HJ4NKsAAAAJ:9yKSN-GCB0IC:
@@ -62,7 +62,7 @@ papers:
     title: In-Contextual Gender Bias Suppression for Large Language Models
     year: '2024'
   0HJ4NKsAAAAJ:hqOjcs7Dif8C:
-    citations: 1
+    citations: 2
     title: Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding
     year: '2026'
   0HJ4NKsAAAAJ:kNdYIx-mwKoC:
@@ -78,7 +78,7 @@ papers:
     title: Understanding interpersonal variations in word meanings via review target identification
     year: '2019'
   0HJ4NKsAAAAJ:ufrVoPGSRksC:
-    citations: 19
+    citations: 20
     title: 'Tracing the Roots of Facts in Multilingual Language Models: Independent, Shared, and Transferred Knowledge'
     year: '2024'
   0HJ4NKsAAAAJ:zYLM7Y9cAGgC:
