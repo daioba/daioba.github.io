@@ -414,6 +414,9 @@ ninja.data = [{
           section: "News",},{id: "news-a-paper-was-accepted-at-emnlp-2026",
           title: 'A paper was accepted at EMNLP 2026',
           description: "",
+          section: "News",},{id: "news-a-paper-was-accepted-at-neurips-2026",
+          title: 'A paper was accepted at NeurIPS 2026',
+          description: "",
           section: "News",},{
         id: 'social-cv',
         title: 'CV',
