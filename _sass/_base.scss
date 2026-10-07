@@ -806,6 +806,12 @@ footer.sticky-bottom {
           font-size: 0.92rem; // 調整
           padding: 0.2rem 0.85rem; // 調整
 
+          // 列幅いっぱいに揃える（スマホ幅では列が全幅になるので元のまま）
+          @media (min-width: 576px) {
+            display: block;
+            width: 100%;
+          }
+
           a,
           div,
           span {
