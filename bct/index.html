@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="BCT: Bayes-Consistent Tempering for Flow Language Models - Oba et al.">
+  <meta name="description" content="BCT (Bayes-Consistent Tempering) makes temperature explicit in both the distributions and dynamics of posterior-induced flow language models, aligning denoiser training states, the tempered endpoint distribution, and the sampling dynamics.">
+  <meta name="keywords" content="flow language models, temperature scaling, tempering, hyperspherical flows, von Mises-Fisher, BCT">
+  <meta name="author" content="Daisuke Oba, Hiroki Furuta, Naoaki Okazaki">
+
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="daioba.github.io">
+  <meta property="og:title" content="BCT: Bayes-Consistent Tempering for Flow Language Models">
+  <meta property="og:description" content="BCT makes temperature explicit in both the distributions and dynamics of posterior-induced flow language models, aligning denoiser training states, the tempered endpoint distribution, and the sampling dynamics.">
+  <meta property="og:url" content="https://daioba.github.io/bct/">
+  <meta property="article:author" content="Daisuke Oba">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="flow language models">
+  <meta property="article:tag" content="temperature scaling">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@dai0NLP">
+  <meta name="twitter:title" content="BCT: Bayes-Consistent Tempering for Flow Language Models">
+  <meta name="twitter:description" content="BCT makes temperature explicit in both the distributions and dynamics of posterior-induced flow language models, aligning denoiser training states, the tempered endpoint distribution, and the sampling dynamics.">
+
+
+  <!-- Google Scholar / Highwire Press metadata -->
+  <meta name="citation_title" content="BCT: Bayes-Consistent Tempering for Flow Language Models">
+  <meta name="citation_author" content="Oba, Daisuke">
+  <meta name="citation_author" content="Furuta, Hiroki">
+  <meta name="citation_author" content="Okazaki, Naoaki">
+  <meta name="citation_publication_date" content="2026">
+
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <title>BCT: Bayes-Consistent Tempering for Flow Language Models | Oba et al.</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "BCT: Bayes-Consistent Tempering for Flow Language Models",
+    "description": "BCT makes temperature explicit in both the distributions and dynamics of posterior-induced flow language models, aligning denoiser training states, the tempered endpoint distribution, and the sampling dynamics.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Daisuke Oba",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Institute of Science Tokyo"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Hiroki Furuta"
+      },
+      {
+        "@type": "Person",
+        "name": "Naoaki Okazaki",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "Institute of Science Tokyo"
+          },
+          {
+            "@type": "Organization",
+            "name": "AIST"
+          },
+          {
+            "@type": "Organization",
+            "name": "NII LLMC"
+          }
+        ]
+      }
+    ],
+    "url": "https://daioba.github.io/bct/",
+    "keywords": ["flow language models", "temperature scaling", "tempering", "hyperspherical flows", "von Mises-Fisher", "BCT"],
+    "abstract": "Temperature scaling is typically applied as a post-hoc transformation of model probabilities. In posterior-induced flow language models, this creates two mismatches. First, posterior tempering implicitly changes both the endpoint distribution and the distribution of intermediate noisy states, while the denoiser remains trained on the original states. Second, the tempered posterior weights are combined with transport dynamics derived for the untempered flow. These mismatches are reflected empirically: lowering temperature improves GSM8K performance much less reliably in flow LMs than in discrete diffusion LMs. We introduce Bayes-Consistent Tempering (BCT), which makes temperature explicit in both the distributions and dynamics of the generative flow. Its learned realization trains the denoiser on tempered intermediate states and tempers the endpoint distribution using the corresponding tempered dynamics. We also derive training-free variants for conventionally trained checkpoints. Across hyperspherical flow LMs with two denoiser architectures and a von Mises–Fisher flow LM, BCT improves GSM8K generation across broad temperature ranges and achieves the strongest tempering performance. The gains also extend to Sudoku, demonstrating benefits on tightly constrained generation. At very low temperatures, the learned realization is also markedly more robust than the training-free variants, supporting temperature as a property of the generative flow across training and inference rather than a post-hoc probability adjustment.",
+    "isAccessibleForFree": true,
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://daioba.github.io/bct/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Flow language models"
+      },
+      {
+        "@type": "Thing",
+        "name": "Temperature scaling"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero has-teaser">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">BCT: Bayes-Consistent Tempering for Flow Language Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Daisuke Oba<sup>1</sup>,</span>
+              <span class="author-block">
+                Hiroki Furuta,</span>
+              <span class="author-block">
+                Naoaki Okazaki<sup>1,2,3</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><small>
+                <sup>1</sup>Institute of Science Tokyo&nbsp;&nbsp;
+                <sup>2</sup>AIST&nbsp;&nbsp;
+                <sup>3</sup>NII LLMC
+              </small></span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- TODO: Replace with the arXiv URL once the upload is complete -->
+                      <span class="link-block">
+                        <a href="#" aria-disabled="true"
+                        class="external-link button is-normal is-rounded is-light">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv (coming soon)</span>
+                      </a>
+                    </span>
+
+                  <!-- TODO: Replace with the GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="#" aria-disabled="true"
+                    class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Overview -->
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="results-carousel method-static overview-wide">
+        <div class="item">
+          <img src="static/images/bct_overview.png" alt="Conceptual overview of Bayes-Consistent Tempering (BCT)">
+          <p class="figure-caption"><strong>Conceptual overview.</strong> Posterior tempering implicitly changes both the endpoint distribution and the conditional bridge, while standard sampling retains the original conditional velocities and denoiser training states. BCT restores consistency between the bridge and sampling dynamics, and its learned realization additionally aligns training with the tempered bridge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End overview -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Temperature scaling is typically applied as a post-hoc transformation of model probabilities. In posterior-induced flow language models, this creates two mismatches. First, posterior tempering implicitly changes both the endpoint distribution and the distribution of intermediate noisy states, while the denoiser remains trained on the original states. Second, the tempered posterior weights are combined with transport dynamics derived for the untempered flow. These mismatches are reflected empirically: lowering temperature improves GSM8K performance much less reliably in flow LMs than in discrete diffusion LMs. We introduce <strong>Bayes-Consistent Tempering (BCT)</strong>, which makes temperature explicit in both the distributions and dynamics of the generative flow. Its learned realization trains the denoiser on tempered intermediate states and tempers the endpoint distribution using the corresponding tempered dynamics. We also derive training-free variants for conventionally trained checkpoints. Across hyperspherical flow LMs with two denoiser architectures and a von Mises&ndash;Fisher flow LM, BCT improves GSM8K generation across broad temperature ranges and achieves the strongest tempering performance. The gains also extend to Sudoku, demonstrating benefits on tightly constrained generation. At very low temperatures, the learned realization is also markedly more robust than the training-free variants, supporting temperature as a property of the generative flow across training and inference rather than a post-hoc probability adjustment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+  </main>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
