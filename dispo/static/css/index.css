@@ -151,6 +151,11 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* Tighter gap between the author line and the affiliation line */
+.publication-authors:has(+ .publication-authors) {
+    margin-bottom: 0.5rem;
+}
+
 .publication-venue {
     color: var(--text-secondary);
     width: fit-content;
