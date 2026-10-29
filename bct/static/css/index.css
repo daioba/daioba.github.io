@@ -385,13 +385,17 @@ body {
 
 /* Content Improvements */
 .content.has-text-justified {
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--text-primary);
 }
 
 .content.has-text-justified p {
   margin-bottom: 1.5rem;
+}
+
+.content.has-text-justified p:last-child {
+  margin-bottom: 0;
 }
 
 /* Footer Improvements */
@@ -542,7 +546,7 @@ code {
   }
   
   .content.has-text-justified {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
